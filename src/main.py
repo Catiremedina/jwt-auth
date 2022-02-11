@@ -10,7 +10,6 @@ from utils import APIException, generate_sitemap
 from admin import setup_admin
 from models import db, User
 from flask_jwt_extended import JWTManager, create_access_token, get_jwt_identity, jwt_required
-#from models import Person
 
 app = Flask(__name__)
 app.url_map.strict_slashes = False
@@ -40,7 +39,7 @@ def handle_register():
     if reg_user is not None:
         return jsonify(reg_user.serialize()), 201
     else:
-        return jsonify({"message": "There's a mistake in your info, try again"}), 500
+        return jsonify({"message": "Try again"}), 500
 
 
 @app.route('/login', methods=['POST'])
